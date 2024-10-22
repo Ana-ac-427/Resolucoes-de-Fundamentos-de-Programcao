@@ -1,0 +1,23 @@
+var input = require('fs').readFileSync('/dev/stdin', 'utf8');
+var lines = input.split('\n');
+
+// Função para calcular a média ponderada
+function calcularMedia() {
+    const input = require('fs').readFileSync('/dev/stdin', 'utf8').trim().split('\n');
+    const A = parseFloat(input[0]);
+    const B = parseFloat(input[1]);
+
+    // Definindo os pesos
+    const pesoA = 3.5;
+    const pesoB = 7.5;
+    const somaPesos = pesoA + pesoB;
+
+    // Cálculo da média
+    const media = (A * pesoA + B * pesoB) / somaPesos;
+
+    // Impressão do resultado com formatação
+    console.log(`MEDIA = ${media.toFixed(5)}`);
+}
+
+// Chamada da função
+calcularMedia();
