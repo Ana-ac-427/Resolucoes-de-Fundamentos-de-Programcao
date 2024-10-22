@@ -1,0 +1,20 @@
+<?php
+// Lê a distância em quilômetros
+$distancia = (int) fgets(STDIN);
+
+// As velocidades dos carros
+$velocidadeX = 60; // Km/h
+$velocidadeY = 90; // Km/h
+
+// Calcula a diferença de velocidade
+$diferencaVelocidade = $velocidadeY - $velocidadeX;
+
+// Calcula o tempo em horas para o carro Y se distanciar do carro X
+$tempoHoras = $distancia / $diferencaVelocidade;
+
+// Converte o tempo de horas para minutos
+$tempoMinutos = $tempoHoras * 60;
+
+// Imprime o resultado
+echo $tempoMinutos . " minutos\n";
+?>
