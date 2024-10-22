@@ -1,0 +1,19 @@
+#include <stdio.h>
+
+int main() {
+    int distancia;         // Variável para a distância total percorrida
+    double combustivel;   // Variável para o total de combustível gasto
+    double consumoMedio;  // Variável para o consumo médio
+
+    // Lê os valores de entrada
+    scanf("%d", &distancia);
+    scanf("%lf", &combustivel);
+
+    // Cálculo do consumo médio
+    consumoMedio = distancia / combustivel;
+
+    // Saída formatada com 3 casas decimais
+    printf("%.3f km/l\n", consumoMedio);
+
+    return 0;
+}
