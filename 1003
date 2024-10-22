@@ -1,0 +1,12 @@
+<?php
+// Leitura dos valores
+$f = fopen("php://stdin", "r");
+$A = (int) fgets($f);
+$B = (int) fgets($f);
+
+// Cálculo da soma
+$SOMA = $A + $B;
+
+// Impressão do resultado
+echo "SOMA = " . $SOMA . "\n";
+?>
