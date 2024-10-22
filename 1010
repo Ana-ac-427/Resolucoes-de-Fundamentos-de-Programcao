@@ -1,0 +1,27 @@
+use std::io;
+
+fn main() {
+    let mut input = String::new();
+
+    // Leitura da primeira linha
+    io::stdin().read_line(&mut input).expect("Failed to read line");
+    let values1: Vec<&str> = input.trim().split_whitespace().collect();
+    let codigo_peca1: i32 = values1[0].parse().unwrap();
+    let numero_pecas1: i32 = values1[1].parse().unwrap();
+    let valor_unitario1: f64 = values1[2].parse().unwrap();
+
+    input.clear(); // Limpa o buffer para a próxima leitura
+
+    // Leitura da segunda linha
+    io::stdin().read_line(&mut input).expect("Failed to read line");
+    let values2: Vec<&str> = input.trim().split_whitespace().collect();
+    let codigo_peca2: i32 = values2[0].parse().unwrap();
+    let numero_pecas2: i32 = values2[1].parse().unwrap();
+    let valor_unitario2: f64 = values2[2].parse().unwrap();
+
+    // Cálculo do valor total a pagar
+    let valor_total = (numero_pecas1 as f64 * valor_unitario1) + (numero_pecas2 as f64 * valor_unitario2);
+
+    // Impressão do resultado formatado
+    println!("VALOR A PAGAR: R$ {:.2}", valor_total);
+}
