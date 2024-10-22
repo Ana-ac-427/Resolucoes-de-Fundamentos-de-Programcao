@@ -1,0 +1,23 @@
+use std::io;
+
+fn main() {
+
+    // Ler o tempo gasto na viagem (em horas)
+    let mut tempo_input = String::new();
+    io::stdin().read_line(&mut tempo_input).expect("Falha ao ler a linha");
+    let tempo: i32 = tempo_input.trim().parse().expect("Por favor, insira um número válido");
+
+    // Ler a velocidade média (em km/h)
+    let mut velocidade_input = String::new();
+    io::stdin().read_line(&mut velocidade_input).expect("Falha ao ler a linha");
+    let velocidade: i32 = velocidade_input.trim().parse().expect("Por favor, insira um número válido");
+
+    // Calcular a distância percorrida
+    let distancia = tempo * velocidade;
+
+    // Calcular a quantidade de litros necessários (12 KM/L)
+    let litros_necessarios = distancia as f64 / 12.0;
+
+    // Imprimir o resultado com 3 casas decimais
+    println!("{:.3}", litros_necessarios);
+}
