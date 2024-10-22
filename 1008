@@ -1,0 +1,13 @@
+# -*- coding: utf-8 -*-
+
+# Leitura dos dados de entrada
+numero = int(input())
+horas_trabalhadas = int(input())
+valor_por_hora = float(input())
+
+# Cálculo do salário
+salario = horas_trabalhadas * valor_por_hora
+
+# Impressão do resultado
+print(f"NUMBER = {numero}")
+print(f"SALARY = U$ {salario:.2f}")
