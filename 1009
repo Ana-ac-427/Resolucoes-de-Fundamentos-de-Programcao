@@ -1,0 +1,17 @@
+<?php
+// Leitura do nome do vendedor
+$nome = trim(fgets(STDIN));
+
+// Leitura do salário fixo e das vendas
+$salario_fixo = (float) trim(fgets(STDIN));
+$total_vendas = (float) trim(fgets(STDIN));
+
+// Cálculo da comissão
+$comissao = $total_vendas * 0.15;
+
+// Cálculo do total a receber
+$total_a_receber = $salario_fixo + $comissao;
+
+// Impressão do resultado com formatação
+printf("TOTAL = R$ %.2f\n", $total_a_receber);
+?>
