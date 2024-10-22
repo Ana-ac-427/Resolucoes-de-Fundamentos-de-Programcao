@@ -1,0 +1,17 @@
+#include <iostream>
+
+int main() {
+    // Declaração das variáveis
+    int A, B;
+
+    // Leitura dos valores
+    std::cin >> A >> B;
+
+    // Cálculo do produto
+    int PROD = A * B;
+
+    // Impressão do resultado
+    std::cout << "PROD = " << PROD << std::endl;
+
+    return 0;
+}
