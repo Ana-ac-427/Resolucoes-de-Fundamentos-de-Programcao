@@ -1,0 +1,11 @@
+-- Leitura dos quatro valores inteiros
+A = io.read("*n")
+B = io.read("*n")
+C = io.read("*n")
+D = io.read("*n")
+
+-- Cálculo da diferença
+diferenca = (A * B) - (C * D)
+
+-- Impressão do resultado
+print("DIFERENCA = " .. diferenca)
