@@ -1,0 +1,24 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        // Lê o valor inteiro
+        int N = int.Parse(Console.ReadLine());
+        
+        // Exibe o valor lido
+        Console.WriteLine(N);
+        
+        // Define as notas disponíveis
+        int[] notas = { 100, 50, 20, 10, 5, 2, 1 };
+        
+        // Calcula e imprime a quantidade de notas
+        foreach (int nota in notas)
+        {
+            int quantidade = N / nota; // Quantidade de notas
+            N %= nota; // Atualiza N com o restante
+            Console.WriteLine($"{quantidade} nota(s) de R$ {nota},00");
+        }
+    }
+}
