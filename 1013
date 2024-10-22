@@ -1,0 +1,19 @@
+#include <iostream>
+#include <algorithm> // Para std::max
+
+int main() {
+    int a, b, c;
+    
+    // Leitura dos valores
+    std::cin >> a >> b >> c;
+
+    // Determina o maior entre os dois primeiros
+    int maior_ab = std::max(a, b);
+    // Determina o maior entre o resultado e o terceiro valor
+    int maior = std::max(maior_ab, c);
+    
+    // Exibe o resultado
+    std::cout << maior << " eh o maior" << std::endl;
+
+    return 0;
+}
