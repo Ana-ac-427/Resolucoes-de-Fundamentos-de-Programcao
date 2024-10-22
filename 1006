@@ -1,0 +1,23 @@
+#include <stdio.h>
+
+int main() {
+    double A, B, C;
+    
+    // Leitura das três notas
+    scanf("%lf", &A);
+    scanf("%lf", &B);
+    scanf("%lf", &C);
+    
+    // Definindo os pesos
+    double pesoA = 2.0;
+    double pesoB = 3.0;
+    double pesoC = 5.0;
+    
+    // Cálculo da média
+    double media = (A * pesoA + B * pesoB + C * pesoC) / (pesoA + pesoB + pesoC);
+    
+    // Impressão do resultado formatado
+    printf("MEDIA = %.1lf\n", media);
+    
+    return 0;
+}
