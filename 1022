@@ -1,0 +1,84 @@
+using System;
+
+class Program
+{
+    // Função para calcular o maior divisor comum (MDC)
+    static int GCD(int a, int b)
+    {
+        while (b != 0)
+        {
+            int temp = b;
+            b = a % b;
+            a = temp;
+        }
+        return a;
+    }
+
+    // Função para simplificar a fração
+    static (int, int) Simplify(int numerator, int denominator)
+    {
+        int gcd = GCD(Math.Abs(numerator), Math.Abs(denominator));
+        return (numerator / gcd, denominator / gcd);
+    }
+
+    static void Main()
+    {
+        // Leitura do número de casos de teste
+        int T = int.Parse(Console.ReadLine());
+
+        // Processamento de cada caso de teste
+        for (int i = 0; i < T; i++)
+        {
+            // Leitura da expressão
+            string expression = Console.ReadLine();
+            string[] parts = expression.Split();
+
+            // Extração dos valores da expressão
+            int N1 = int.Parse(parts[0]);
+            int D1 = int.Parse(parts[2]);
+            string op = parts[3];
+            int N2 = int.Parse(parts[4]);
+            int D2 = int.Parse(parts[6]);
+
+            // Variáveis para armazenar o resultado da operação
+            int resultNumerator = 0;
+            int resultDenominator = 0;
+
+            // Realização da operação conforme o operador
+            switch (op)
+            {
+                case "+":
+                    // Soma: (N1 * D2 + N2 * D1) / (D1 * D2)
+                    resultNumerator = (N1 * D2) + (N2 * D1);
+                    resultDenominator = D1 * D2;
+                    break;
+
+                case "-":
+                    // Subtração: (N1 * D2 - N2 * D1) / (D1 * D2)
+                    resultNumerator = (N1 * D2) - (N2 * D1);
+                    resultDenominator = D1 * D2;
+                    break;
+
+                case "*":
+                    // Multiplicação: (N1 * N2) / (D1 * D2)
+                    resultNumerator = N1 * N2;
+                    resultDenominator = D1 * D2;
+                    break;
+
+                case "/":
+                    // Divisão: (N1 * D2) / (N2 * D1)
+                    resultNumerator = N1 * D2;
+                    resultDenominator = N2 * D1;
+                    break;
+            }
+
+            // Simplificando a fração resultante
+            var simplified = Simplify(resultNumerator, resultDenominator);
+            int simplifiedNumerator = simplified.Item1;
+            int simplifiedDenominator = simplified.Item2;
+
+            // Exibindo o resultado
+            Console.WriteLine($"{resultNumerator}/{resultDenominator} = {simplifiedNumerator}/{simplifiedDenominator}");
+        }
+    }
+}
