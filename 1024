@@ -1,0 +1,34 @@
+def criptografar(texto):
+    # Primeira Passada: Desloca 3 posições para a direita para letras minúsculas e maiúsculas
+    texto_passada_1 = []
+    for char in texto:
+        if 'a' <= char <= 'z' or 'A' <= char <= 'Z':  # Verifica se é uma letra
+            texto_passada_1.append(chr(ord(char) + 3))  # Desloca 3 posições à direita
+        else:
+            texto_passada_1.append(char)
+    
+    # Segunda Passada: Inverte a string
+    texto_passada_2 = ''.join(texto_passada_1)[::-1]
+    
+    # Terceira Passada: Desloca 1 posição para a esquerda os caracteres da metade para a frente
+    n = len(texto_passada_2)
+    metade = n // 2
+    texto_passada_3 = list(texto_passada_2)
+    
+    for i in range(metade, n):
+        texto_passada_3[i] = chr(ord(texto_passada_3[i]) - 1)  # Desloca 1 posição à esquerda
+    
+    # Retorna a string final após as três passadas
+    return ''.join(texto_passada_3)
+
+def main():
+    # Leitura da quantidade de casos de teste
+    N = int(input())  # Número de linhas
+    for _ in range(N):
+        # Leitura de cada linha de texto
+        texto = input().strip()
+        # Criptografa e exibe o resultado
+        print(criptografar(texto))
+
+# Chama a função principal
+main()
