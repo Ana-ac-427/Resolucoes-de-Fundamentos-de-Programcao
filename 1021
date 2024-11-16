@@ -1,0 +1,47 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        // Leitura do valor
+        double valor = double.Parse(Console.ReadLine());
+
+        // Vetores das denominações de notas e moedas
+        int[] notas = { 100, 50, 20, 10, 5, 2 };
+        double[] moedas = { 1.00, 0.50, 0.25, 0.10, 0.05, 0.01 };
+
+        // Quantidades de notas e moedas a serem usadas
+        int[] qtdNotas = new int[notas.Length];
+        int[] qtdMoedas = new int[moedas.Length];
+
+        // Processamento das notas
+        for (int i = 0; i < notas.Length; i++)
+        {
+            qtdNotas[i] = (int)(valor / notas[i]); // Quantidade de notas dessa denominação
+            valor %= notas[i]; // Atualiza o valor após descontar as notas usadas
+        }
+
+        // Processamento das moedas
+        for (int i = 0; i < moedas.Length; i++)
+        {
+            qtdMoedas[i] = (int)(valor / moedas[i]); // Quantidade de moedas dessa denominação
+            valor %= moedas[i]; // Atualiza o valor após descontar as moedas usadas
+            valor = Math.Round(valor, 2); // Arredondar o valor para evitar imprecisão com ponto flutuante
+        }
+
+        // Exibindo as notas
+        Console.WriteLine("NOTAS:");
+        for (int i = 0; i < notas.Length; i++)
+        {
+            Console.WriteLine($"{qtdNotas[i]} nota(s) de R$ {notas[i]:F2}");
+        }
+
+        // Exibindo as moedas
+        Console.WriteLine("MOEDAS:");
+        for (int i = 0; i < moedas.Length; i++)
+        {
+            Console.WriteLine($"{qtdMoedas[i]} moeda(s) de R$ {moedas[i]:F2}");
+        }
+    }
+}
